@@ -17,25 +17,45 @@ const varToString = varObj => Object.keys(varObj)[0];
 
 let settingsDiv = document.getElementById('settingsDiv');
 
-function setDefaults(sentences) {
 
-    for (let sentence of sentences) {
-        let name = varToString(sentence).toLowerCase();
+function setDefaults(name, sentence) {
 
-        let nextInput = document.createElement('input');
-        nextInput.id = varToString(sentence);
-        nextInput.value = sentence;
-        settingsDiv.appendChild(nextInput);
+    let nextContainer = document.createElement('div');
+    let nextLabel = document.createElement('LABEL')
+    nextLabel.innerHTML = name;
+    console.log(name);
+    let nextInput = document.createElement('textArea');
+    nextInput.id = name;
+    nextInput.cols = 100;
+    nextInput.rows = 3;
+    nextInput.value = sentence;
+    nextContainer.appendChild(nextLabel);
+    nextContainer.appendChild(document.createElement('br'));
+    nextContainer.appendChild(nextInput);
 
-        let button = document.createElement('button');
-        button.id = name + 'Button';
-        button.addEventListener('click', function() {
-            chrome.storage.sync.set({name: sentence}, function() {
-                console.log('name: ' + sentence);
-            })
-        });
-        page.appendChild(button);
-    }
+    let storeObj = {};
+    storeObj[name] = sentence
+
+    chrome.storage.sync.set(storeObj, function() {
+        console.log('name: ' + sentence);
+    })
+
+    let button = document.createElement('button');
+    button.id = name + 'Button';
+    button.innerHTML = 'Save'
+    button.addEventListener('click', function() {
+        let updObj = {};
+        updObj[name] = document.getElementById(name).value;
+        chrome.storage.sync.set(updObj, function() {
+            console.log('name: ' + sentence);
+        })
+    });
+    nextContainer.appendChild(button);
+
+    settingsDiv.append(nextContainer);
 }
 
-setDefaults(sentences);
+setDefaults('greetings', greetings);
+setDefaults('solution', solution);
+setDefaults('close', close);
+setDefaults('thanks', thanks);

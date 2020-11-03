@@ -33,7 +33,7 @@
 		})
 		.then(() => {
 
-            let greetings = '', solution = '', close = '', thanks = '';
+            let greetings, solution, close, thanks;
             chrome.storage.sync.get('greetings', function(data) {
                 greetings = data.greetings;
             });
@@ -54,22 +54,22 @@
 			
             let salutation = "<p>Dear " + customerName + ",</p>";
             
-			let greetings1 = "<p>" + greetings.replace("{product}", product).replace("{paraphrase}", paraphrase) + "</p>";
-            greetings1 = greetings1 || "<p>Thank you for contacting " + product + " Support today. I will be assisting you to " + paraphrase + ".</p>";
+			//let greetings1 = "<p>" + greetings.replace("{product}", product).replace("{paraphrase}", paraphrase) + "</p>";
+            let greetings1 = "<p>Thank you for contacting " + product + " Support today. I will be assisting you to " + paraphrase + ".</p>";
             
-			let solution1 = "<p>" + solution.replace("{kb}", "<a href="+kb + ">"+header+"</a>").replace("{paraphrase}", paraphrase) + ".</p>";
-            solution1 = solution1 || "<p>The <a href="+kb + ">"+header+"</a> article details how to " + paraphrase + ".</p>";
+			//let solution1 = "<p>" + solution.replace("{kb}", "<a href="+kb + ">"+header+"</a>").replace("{paraphrase}", paraphrase) + ".</p>";
+            let solution1 = "<p>The <a href="+kb + ">"+header+"</a> article details how to " + paraphrase + ".</p>";
             
 			let reqPrereq = Object.entries(prereqs).filter(([req, val]) => val)
 			let prereq = "<p>";
 			reqPrereq.forEach(([req, val]) => prereq += "Please note that you will need " + prereqtext[req] + " to apply this solution. ");
 			prereq += "</p>";
             
-            let close1 = "<p>" + close.replace("{paraphrase}", paraphrase) + "</p>"
-			close1 = close1 || "<p>Please let me know if this does not help you " + paraphrase + " or if you require further assistance. The ticket will remain open for 7 days unless you reply with \"This ticket can be closed\" or update the status to Closed in the portal.</p>"
+            // let close1 = "<p>" + close.replace("{paraphrase}", paraphrase) + "</p>"
+			let close1 = "<p>Please let me know if this does not help you " + paraphrase + " or if you require further assistance. The ticket will remain open for 7 days unless you reply with \"This ticket can be closed\" or update the status to Closed in the portal.</p>"
             
-            let thanks1 = "<p>" + thanks + "</p>"
-			thanks1 = thanks1 || "<p>Thank you.</p>"
+            // let thanks1 = "<p>" + thanks + "</p>"
+			let thanks1 = "<p>Thank you.</p>"
 			let signout = "<p>Best Regards,</p><p>Trevor Chikambure</p><p>" + product + " Support Team</p>"
 
 			let splitter = '<p><br></p>';
