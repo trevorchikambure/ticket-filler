@@ -1,2 +1,2 @@
 # ticket-filler
-generate ticket responses based on set norms
+chrome plugin to generate ticket responses based on set norms
