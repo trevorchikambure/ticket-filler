@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" class="main-page">
+	<head>
+		<style>
+			#abc {
+				width:100%;
+				height:100%;
+				opacity:.95;
+				top:0;
+				left:0;
+				display:block;
+				position:fixed;
+				background-color:#313131;
+				overflow:auto
+			}
+			img#close {
+				position:absolute;
+				right:-14px;
+				top:-14px;
+				cursor:pointer
+			}
+			div#popupContact {
+				position:absolute;
+				left:50%;
+				top:17%;
+				margin-left:-202px;
+				font-family:'Raleway',sans-serif
+			}
+			form {
+				max-width:300px;
+				min-width:250px;
+				padding:10px 50px;
+				font-family:raleway;
+				background-color:#fff
+			}
+			form div {
+				display: inline-block;
+			}
+			p {
+			margin-top:30px
+			}
+			h2 {
+				background-color:#FEFFED;
+				padding:20px 35px;
+				margin:-10px -50px;
+				text-align:center;
+				border-radius:10px 10px 0 0
+			}
+			hr {
+				margin:10px -50px;
+				border:0;
+				border-top:1px solid #ccc
+			}
+				input[type=text] {
+				width:82%;
+				padding:10px 5px;
+				margin-top:30px;
+				border:1px solid #ccc;
+				font-size:16px;
+				font-family:raleway
+			}
+			textarea {
+				width:82%;
+				height:95px;
+				padding:10px;
+				resize:none;
+				margin-top:30px;
+				border:1px solid #ccc;
+				padding-left:40px;
+				font-size:16px;
+				font-family:raleway;
+				margin-bottom:30px
+			}
+			#submit {
+				text-decoration:none;
+				width:100%;
+				text-align:center;
+				display:block;
+				background-color:#FFBC00;
+				color:#fff;
+				border:1px solid #FFCB00;
+				padding:10px 0;
+				font-size:20px;
+				cursor:pointer;
+				border-radius:5px
+			}
+			span {
+				color:red;
+				font-weight:700
+			}
+			button {
+				width:10%;
+				height:45px;
+				border-radius:3px;
+				background-color:#cd853f;
+				color:#fff;
+				font-family:'Raleway',sans-serif;
+				font-size:18px;
+				cursor:pointer
+			}
+		</style>
+	</head>
+	<body>
+        <form action="#" id="responses" method="post" name="form">
+            <input id="product" name="product" placeholder="Product" type="text" value="DNN">
+            <input id="kb" name="kb" placeholder="KB Article" type="text">
+            <input id="customerName" name="customerName" placeholder="Customer Name" type="text" value="Alexander">
+            <textarea id="paraphrase" name="paraphrase" placeholder="Paraphrase"></textarea>
+            <div>
+                <input type="checkbox" id="SuperUser" name="SuperUser" value="false">
+                <label for="SuperUser">SuperUser</label>
+            </div>
+            <div>
+                <input type="checkbox" id="administrator" name="administrator" value="false">
+                <label for="administrator">Administrator</label>
+            </div>
+            <div>
+                <input type="checkbox" id="SQL" name="SQL" value="false">
+                <label for="SQL">SQL</label>
+            </div>
+            <div>
+                <input type="checkbox" id="IIS" name="IIS" value="false">
+                <label for="IIS">IIS</label>
+            </div>
+            <div>
+                <input type="checkbox" id="FileSystem" name="FileSystem" value="false">
+                <label for="FileSystem">FileSystem</label>
+            </div>
+            <a href="#" id="submit">Generate</a>
+        </form>
+    <script src="popup.js"></script>
+	</body>
+</html>
